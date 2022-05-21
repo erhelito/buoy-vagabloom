@@ -14,6 +14,7 @@ Currently, we have to finish the software.
 - [x] impermeability
 - [x] battery
 - [ ] hera card
+- [ ] data storage
 
 # Others
 ## Data frame
