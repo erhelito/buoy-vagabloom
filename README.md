@@ -24,10 +24,11 @@ It is saved in this way :
 
 So :
 - `accelerometer` is `data[0]`
-- `temperature` is `data[1]`
-- `salinity` is `data[2]`
-- `impermeability` is `data[3]`
-- `battery` is `data[4]`
+- `surface_temperature` is `data[1]`
+- `depth_temperature` is `data[2]`
+- `salinity` is `data[3]`
+- `impermeability` is `data[4]`
+- `battery` is `data[5]`
 
 Each time we collect data, we add a new line in a new data frame.
 This way :
