@@ -10,7 +10,7 @@ Currently, we have to finish the software.
 # Todo
 - [ ] accelerometer
 - [ ] temperature
-- [ ] salinity
+- [x] salinity
+- [x] impermeability
+- [x] battery
 - [ ] hera card
-- [ ] battery
-- [ ] impermeability
