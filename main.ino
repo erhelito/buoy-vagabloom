@@ -34,6 +34,7 @@ void setup(void) {
 
 void loop(void) {
     // get temperatures
+    // create surface_temp and depth_temp
     get_temp();
 
 
