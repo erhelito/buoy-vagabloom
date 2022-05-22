@@ -33,11 +33,7 @@ void setup(void) {
 }
 
 void loop(void) {
-    // backup actual_data in past_data
-    for (int i = 0; i < 6; i++) {
-        past_data[i] = actual_data[i];
-    }
-
+    backup_data();
 
     // get temperatures
     // create surface_temp and depth_temp
@@ -54,6 +50,13 @@ void loop(void) {
     actual_data[3] = salinity;
     actual_data[4] = impermeability;
     actual_data[5] = battery;
+}
+
+void backup_data(void) {
+    // backup actual_data in past_data
+    for (int i = 0; i < 6; i++) {
+        past_data[i] = actual_data[i];
+    }
 }
 
 void get_temp(void){
