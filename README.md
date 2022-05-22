@@ -20,7 +20,7 @@ Currently, we have to finish the software.
 ## Data frame
 The data frame is a table, which contains all the data.
 It is saved in this way :
-`[accelerometer, temperature, salinity, impermeability, battery]`
+`[accelerometer, surface_temperature, depth_temperature, salinity, impermeability, battery]`
 
 So :
 - `accelerometer` is `data[0]`
