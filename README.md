@@ -15,7 +15,7 @@ Currently, we have to finish the software.
 - [x] impermeability
 - [x] battery
 - [ ] hera card
-- [ ] data storage
+- [ ] compute average data
 
 # Others
 ## Data frame
