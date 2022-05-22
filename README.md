@@ -8,7 +8,7 @@ Our scientific team is working on biodiversity, and in the technical part, we ar
 Currently, we have to finish the software.
 
 # Todo
-- [x] backup datas in dataframe
+- [x] backup data in dataframe
 - [ ] accelerometer
 - [ ] temperature
 - [x] salinity
