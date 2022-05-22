@@ -16,8 +16,8 @@ const int impermeability_pin = A3;
 const int battery_pin = A1;
 
 // dataframes
-float actual_data[5];
-float past_data[5];
+float actual_data[6];
+float past_data[6];
 
 void setup(void) {
     Serial.begin(9600);
@@ -33,6 +33,12 @@ void setup(void) {
 }
 
 void loop(void) {
+    // backup actual_data in past_data
+    for (int i = 0; i < 6; i++) {
+        past_data[i] = actual_data[i];
+    }
+
+
     // get temperatures
     // create surface_temp and depth_temp
     get_temp();
