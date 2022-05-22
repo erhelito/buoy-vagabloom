@@ -10,7 +10,7 @@ Currently, we have to finish the software.
 # Todo
 - [x] backup data in dataframe
 - [ ] accelerometer
-- [ ] temperature
+- [x] temperature (surface and depth)
 - [x] salinity
 - [x] impermeability
 - [x] battery
