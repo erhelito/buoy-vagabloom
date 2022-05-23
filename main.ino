@@ -56,8 +56,7 @@ byte memory_accel[6];
 
 // height variable
 unsigned int height;
-
-
+float final_height;
 
 /*
 ##########
@@ -79,7 +78,16 @@ const int salinity_pin = A5;
 const int impermeability_pin = A3;
 const int battery_pin = A1;
 
-// dataframes
+// ##########
+// OTHERS SENSORS
+// ##########
+int salinity;
+int impermeability;
+int battery;
+
+// ##########
+// DATAFRAMES
+// ##########
 float actual_data[6];
 float past_data[6];
 
@@ -102,21 +110,33 @@ void setup(void) {
 }
 
 void loop(void) {
-    backup_data();
+    //loop 17000 times
+    for (int i = 0; i < 1250; i++) {
+        if (i == 0) {
+            backup_data();
 
-    // get wave height
-    get_height();
+            // get temperatures
+            // create surface_temp and depth_temp
+            get_temp();
 
-    // get temperatures
-    // create surface_temp and depth_temp
-    get_temp();
+            // read analogic inputs[
+            salinity = analogRead(salinity_pin);
+            impermeability = analogRead(impermeability_pin);
+            battery = analogRead(battery_pin);
+            
+        }
 
-    // read analogic inputs
-    int salinity = analogRead(salinity_pin);
-    int impermeability = analogRead(impermeability_pin);
-    int battery = analogRead(battery_pin);
+        // get wave height
+        get_height();
 
-    actual_data[0] = height;
+        final_height += height;
+
+        delay(5);
+    }
+
+    final_height = final_height / 1250;
+
+    actual_data[0] = final_height;
     actual_data[1] = surface_temp;
     actual_data[2] = depth_temp;
     actual_data[3] = salinity;
@@ -131,9 +151,6 @@ void backup_data(void) {
     }
 }
 
-
-
-
 void get_height(void) {
     time = millis();
 
@@ -146,7 +163,7 @@ void get_height(void) {
 
     accel_reading();
 
-    storage_50_values[0] = (y_accel + 255);
+    storage_50_values[0] = (y_accel - 255);
 
     average = sum_values / nbr_values_in_average;
 
