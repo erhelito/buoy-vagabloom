@@ -110,11 +110,11 @@ void setup(void) {
 }
 
 void loop(void) {
+    backup_data();
+
     //loop 17000 times
     for (int i = 0; i < 1250; i++) {
         if (i == 0) {
-            backup_data();
-
             // get temperatures
             // create surface_temp and depth_temp
             get_temp();
@@ -142,6 +142,27 @@ void loop(void) {
     actual_data[3] = salinity;
     actual_data[4] = impermeability;
     actual_data[5] = battery;
+
+    while (Serial.read() <= 0) {
+        // do nothing
+        // pause
+    }
+
+    // send data
+    for (int i = 0; i < 6; i++) {
+        Serial.print(actual_data[i]);
+        Serial.write(2);
+    }
+
+    // send past data
+    for (int i = 0; i < 6; i++) {
+        Serial.print(past_data[i]);
+        Serial.write(2);
+    }
+
+    while (Serial.read() <= 0) {
+        Serial.print(0);
+    }
 }
 
 void backup_data(void) {
