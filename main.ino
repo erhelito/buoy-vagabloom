@@ -20,8 +20,8 @@ const char data_format = 0x31;
 const char power_control = 0x2D;
 
 // measure modes addresses
-const char precision_2G_accel  = 0x00;
-const char mode_accel   = 0x08;
+const char precision_2G_accel = 0x00;
+const char mode_accel = 0x08;
 
 // axes addresses
 const char x0_accel_address = 0x32;
