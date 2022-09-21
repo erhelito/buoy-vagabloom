@@ -16,7 +16,8 @@ Currently, we have to finish the software.
 - [x] battery
 - [ ] hera card
 - [x] compute average data
-- [ ] file sensor only (for test)
+- [x] create file sensor_only (for test)
+- [ ] test sensor_only
 
 # Others
 ## Data frame
