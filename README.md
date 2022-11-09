@@ -5,7 +5,7 @@ It will help us to understand the ocean, phytoplankton, and other interesting st
 
 Our scientific team is working on biodiversity, and in the technical part, we are creating this buoy.
 
-Currently, we have to finish the software.
+Currently, we have to finish the programming of our buoy.
 
 # Todo
 - [x] backup data in dataframe
@@ -17,12 +17,13 @@ Currently, we have to finish the software.
 - [ ] hera card
 - [x] compute average data
 - [x] create file sensor_only (for test)
-- [ ] test sensor_only
+- [x] test sensor_only
+- [ ] repair salinity sensor
 
 # Others
 ## Data frame
 The data frame is a table, which contains all the data.
-It is saved in this way :
+Structure
 `[accelerometer, surface_temperature, depth_temperature, salinity, impermeability, battery]`
 
 So :
@@ -33,10 +34,4 @@ So :
 - `impermeability` is `data[4]`
 - `battery` is `data[5]`
 
-Each time we collect data, we add a new line in a new data frame.
-This way :
-
-```arduino
-float actual_data[5];
-float past_data[5];
-```
+Each time we collect data, previous data are stored in `past_data`.
