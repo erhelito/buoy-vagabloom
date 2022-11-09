@@ -74,7 +74,7 @@ float surface_temp;
 float depth_temp;
 
 
-const int salinity_pin = A5;
+const int salinity_pin = A4;
 const int impermeability_pin = A3;
 const int battery_pin = A1;
 
@@ -92,21 +92,29 @@ float actual_data[6];
 float past_data[6];
 
 void setup(void) {
+    Serial.println("Starting program");
+
     Serial.begin(9600);
 
     // initialize accelerometer
+    Serial.print("Accelerometer init");
     Wire.begin();
     accel_configuration(data_format, precision_2G_accel);
     accel_configuration(power_control, mode_accel);
+    Serial.println("Done");
 
     // initialize temperature sensors
+    Serial.print("Temperature init");
     sensors.begin();
     sensors.setResolution(sensorDeviceAddress, 9);
+    Serial.println("Done");
 
     // initialize analogic inputs
+    Serial.print("Analogic init");
     pinMode(salinity_pin, INPUT);
     pinMode(impermeability_pin, INPUT);
     pinMode(battery_pin, INPUT);
+    Serial.println("Done");
 
     Serial.println("Wave height, Surface temp, Depth temp, Salinity, Impermeability, Battery");
 }
@@ -156,6 +164,10 @@ void loop(void) {
         Serial.print(past_data[i]);
         Serial.print(",");
     }
+
+    Serial.println("");
+
+    delay(1000);
 }
 
 void backup_data(void) {
