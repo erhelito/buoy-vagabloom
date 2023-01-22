@@ -74,7 +74,7 @@ float surface_temp;
 float depth_temp;
 
 
-const int salinity_pin = A4;
+const int salinity_pin = A2;
 const int impermeability_pin = A3;
 const int battery_pin = A1;
 
@@ -154,15 +154,17 @@ void loop(void) {
     actual_data[5] = battery;
 
     // send data
+    Serial.print("I: ");
     for (int i = 0; i < 6; i++) {
         Serial.print(actual_data[i]);
-        Serial.print(",");
+        Serial.print(" , ");
     }
 
     // send past data
+    Serial.print("P: ");
     for (int i = 0; i < 6; i++) {
         Serial.print(past_data[i]);
-        Serial.print(",");
+        Serial.print(" , ");
     }
 
     Serial.println("");
